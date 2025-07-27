@@ -25,6 +25,6 @@ const std::unordered_map<std::string, Token> token_map{
 
 std::vector<std::string> split_tokens(std::string str);
 
-std::pair<std::string, int> read_int(std::string, int);
+std::string read_int(std::string, int);
 
 #endif

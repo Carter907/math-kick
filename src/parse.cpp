@@ -3,6 +3,7 @@
 #include "tokenizer.h"
 
 std::vector<BinaryOperation> parse_expression(std::string expr) {
+
   std::vector<BinaryOperation> res{};
   std::vector<std::string> split{split_tokens(expr)};
   std::vector<std::vector<std::string>> opers;

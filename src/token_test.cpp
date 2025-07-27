@@ -2,7 +2,7 @@
 #include <iostream>
 int main() {
 
-  std::string token_str{"1+2/5+9134"};
+  std::string token_str{"1   + 2  aljdaf / 5  + %% 9134 a  "};
 
   std::vector<std::string> tokens = split_tokens(token_str);
   for (auto token : tokens) {
