@@ -8,7 +8,7 @@ std::vector<BinaryOperation> parse_expression(std::string expr) {
   std::vector<std::string> split{split_tokens(expr)};
   std::vector<std::vector<std::string>> opers;
 
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < split.size(); i++) {
 
     if (i % 3 == 0) {
       opers.push_back(std::vector<std::string>());
@@ -16,7 +16,8 @@ std::vector<BinaryOperation> parse_expression(std::string expr) {
 
     opers[i / 3].push_back(split[i]);
   }
-
+  // current issue: how do I combine multiple binary operations together if the first operand depends on 
+  // the execution of the previous?
   for (const auto &op_vec : opers) {
 
     int operand1 = std::stoi(op_vec[0]);
@@ -27,6 +28,8 @@ std::vector<BinaryOperation> parse_expression(std::string expr) {
 
     res.push_back(bin_op);
   }
+
+
 
   return res;
 }

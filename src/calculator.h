@@ -7,33 +7,44 @@
 
 #include "operation.h"
 
-class Calculator {
-  BinaryOperation bin_expr;
+class Calculator
+{
+  std::vector<BinaryOperation> expression;
 
-  int evaluate() {
+  int evaluate()
+  {
 
-    int res{};
-    switch (bin_expr.operator_) {
-    case Operation::ADD:
-      res = bin_expr.operand_1 + bin_expr.operand_2;
-      break;
-    case Operation::SUBTRACT:
-      res = bin_expr.operand_1 - bin_expr.operand_2;
-      break;
-    case Operation::DIVIDE:
-      res = bin_expr.operand_1 / bin_expr.operand_2;
-      break;
-    case Operation::MULTIPLY:
-      res = bin_expr.operand_1 * bin_expr.operand_2;
-      break;
-    default:
-      break;
+    int res = expression[0].operand_1;
+    for (const auto &bin_op : expression)
+    {
+
+      switch (bin_op.operator_)
+      {
+      case Operation::ADD:
+        res = res + bin_op.operand_2;
+        break;
+      case Operation::SUBTRACT:
+        res = res - bin_op.operand_2;
+        break;
+      case Operation::DIVIDE:
+        res = res / bin_op.operand_2;
+        break;
+      case Operation::MULTIPLY:
+        res = res * bin_op.operand_2;
+        break;
+      default:
+        break;
+      }
     }
+
     return res;
   };
 
 public:
-  Calculator() : bin_expr(BinaryOperation()) {};
+  Calculator()
+  {
+    expression = std::vector<BinaryOperation>{};
+  };
 
   void eval(std::string);
 

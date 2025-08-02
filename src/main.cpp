@@ -4,11 +4,7 @@ int main() {
 
   Calculator c;
 
-  c.eval("1 + 2");
-
-  c.print_result();
-
-  c.eval("5 + 2");
+  c.eval("5 + 2/5+10");
 
   c.print_result();
 

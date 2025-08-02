@@ -1,8 +1,11 @@
 #ifndef OPERATION_H
 #define OPERATION_H
+
+#include <iostream>
 #include <unordered_map>
 
-enum class Operation {
+enum class Operation
+{
   ADD,
   SUBTRACT,
   MULTIPLY,
@@ -11,6 +14,8 @@ enum class Operation {
 
 };
 
+std::ostream & operator<<(std::ostream &os, const Operation &op);
+
 static const std::unordered_map<char, Operation> oper_map{
     {'+', Operation::ADD},
     {'-', Operation::SUBTRACT},
@@ -18,7 +23,8 @@ static const std::unordered_map<char, Operation> oper_map{
     {'/', Operation::DIVIDE},
 };
 
-struct BinaryOperation {
+struct BinaryOperation
+{
   int operand_1;
   int operand_2;
   Operation operator_;
